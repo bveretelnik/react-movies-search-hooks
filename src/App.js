@@ -1,63 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React from 'react';
+import './App.css'
+import MoviesState from './components/context/movies/MoviesState';
 import Header from './components/Header';
-import Movie from './components/Movie';
+import Movies from './components/Movies';
 import Search from './components/Search';
 
-
-const MOVIE_API_URL = 'http://www.omdbapi.com/?s=tt3896198&apikey=9753ea4a'
-
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null);
-
-useEffect(() => {
-  fetch(MOVIE_API_URL)
-  .then(response=> response.json())
-  .then(jsonResponse=>{
-    setMovies(jsonResponse.Search)
-    setLoading(false)
-  })
-}, [])
-
-const search = searchValue => {
-  setLoading(true)
-  setErrorMessage(null)
-  fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=9753ea4a`)
-  .then(response => response.json())
-  .then(jsonResponse => {
-    if(jsonResponse.Response === 'True'){
-      setMovies(jsonResponse.Search)
-      console.log(jsonResponse);
-      setLoading(false)
-    }else {
-      setErrorMessage(jsonResponse.Error)
-      setLoading(false)
-    }
-  })
-  console.log(movies)
-}
-
-
 
   return (
-    <div className="App">
-      <Header text='HOOKED'/>
-      <Search search={search}/>
-      <p className="App-intro">Sharing a few of our favourite movies</p>
-      {/* <div className="movies">
-        {loading && !errorMessage ? (
-         <span>loading...</span>
-         ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
-        ) : (
-          movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie} />
-          ))
-        )}
-      </div> */}
-    </div>
+  <MoviesState>
+        <div className="App">
+              <Header text='Movise Search'/>
+            <p className="App-intro">Sharing a few of our favourite movies</p>
+              <Search/>
+              <div className="movies">
+                  <Movies/>
+              </div>
+        </div>
+    </MoviesState>
   );
 }
 

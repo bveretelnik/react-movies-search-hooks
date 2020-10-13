@@ -1,0 +1,12 @@
+.App-header {
+    background-color: #282c34;
+    display: block;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+.App-header h2 {
+  text-align: center;
+}
+ 
