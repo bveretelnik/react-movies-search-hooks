@@ -35,13 +35,13 @@ const search = async value => {
                 type:SEARCH_MOVIES_SUCCESS,
                 payload: res.data.Search
             })
-            console.log(state.movies)
+            // console.log(state.movies)
         }else {
             dispatch({
                 type:SEARCH_MOVIES_FAILURE,
                 error: res.data.Error
             })
-            console.log(state.errorMessage)
+            // console.log(state.errorMessage)
         }
     })
     
