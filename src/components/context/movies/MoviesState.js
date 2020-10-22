@@ -19,20 +19,16 @@ export default function MoviesState({children}) {
 useEffect(() => {
    Axios.get(MOVIE_API_URL)
    .then(res=>{
-       dispatch({
-           type:SEARCH_MOVIES_SUCCESS,
-           payload:res.data
-       })
+    dispatch({
+        type:SEARCH_MOVIES_REQUEST
+    })
    })
    
 }, [])
 
-const search = value => {
-    dispatch({
-        type:SEARCH_MOVIES_REQUEST
-    })
-
-  Axios(`https://www.omdbapi.com/?s=${value}&apikey=9753ea4a`)
+const search = async value => {
+    
+  await Axios(`https://www.omdbapi.com/?s=${value}&apikey=9753ea4a`)
     .then(res => {
         if(res.data.Response === 'True'){
             dispatch({
@@ -47,6 +43,7 @@ const search = value => {
             })
         }
     })
+    
 
 }
 
@@ -55,9 +52,7 @@ const {movies, errorMessage, loading} = state
     return (
         <MoviesContext.Provider value={{
             search,
-            movies,
-            errorMessage,
-            loading
+            movies, errorMessage, loading
         }}>
             {children}
         </MoviesContext.Provider>
