@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import { MoviesContext } from './context/movies/moviesContext';
+import Loader from './Loader';
 import Movie from './Movie';
 import './Movie.scss'
 
@@ -10,7 +11,7 @@ export default function Movies() {
     return (
         <div className="movies">
         {loading && !errorMessage ? (
-      <p>Loading...</p>
+      <Loader />
     ) : errorMessage ? (
       <div className="errorMessage">{errorMessage}</div>
     ) : (
