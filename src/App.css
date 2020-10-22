@@ -3,13 +3,11 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif; 
     display: block;
-    min-height: 100vh;
-    font-size: 1.5rem;
     background-color:#222222;
   }
 
   .App-intro {
     text-align: center;
-    margin: 10px;
+    margin: 20px;
     color: #9b9b9b;
   }

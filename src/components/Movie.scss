@@ -1,23 +1,28 @@
 .movies {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2vw;
+  padding-top: 100px
   }
-  
- 
-  
-  
-  
+
   .movie {
-    padding: 70px 20px 10px 20px;
+    padding: 0px 0px 0px 0px;
+    margin: 10px 10px 10px 20px;
     width: 300px;
-    
+    height: 505px;
     margin: auto;
-    border: 5px solid white;
+    border: 1px solid white;
+    
+    .movie-container {
+      padding: 2px 2px;
+      margin: 0;
+    }
     img {
-      margin: auto;
       width: 300px;
+      height: 400px;
+      
+      
     }
     h4 {
       text-align: center;

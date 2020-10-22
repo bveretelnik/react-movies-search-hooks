@@ -7,14 +7,14 @@ export default function Movie({movie}) {
   const poster = movie.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;
 return (
   <div className="movie">
-    <h4>{movie.Title}</h4>
-    <div>
       <img
         alt={`The movie titled: ${movie.Title}`}
         src={poster}
       />
+    <div className='movie-container'>
+    <h4><b>{movie.Title}</b></h4>
+    <p>{movie.Year}</p>
     </div>
-    <p>({movie.Year})</p>
   </div>
 );
 
