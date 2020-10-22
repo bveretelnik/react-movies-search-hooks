@@ -41,6 +41,7 @@ const search = async value => {
                 type:SEARCH_MOVIES_FAILURE,
                 error: res.data.Error
             })
+            console.log(state.errorMessage)
         }
     })
     

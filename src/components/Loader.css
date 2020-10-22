@@ -1,11 +1,11 @@
 .lds-spinner {
     color: official;
-    display: inline-block;
+    display: block;
     position: relative;
+    left: 100%;
+    width: 100px;
+    height: 100%;
     margin: auto;
-    width: 80px;
-    height: 80px;
-    padding-top: 85px;
     
   }
   .lds-spinner div {

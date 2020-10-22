@@ -12,6 +12,7 @@ export const moviesReducer = (state,action) => {
             return {
                 ...state,
                 loading: false,
+                errorMessage: null,
                 movies: action.payload
                 }
         case SEARCH_MOVIES_FAILURE:
